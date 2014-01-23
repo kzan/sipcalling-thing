@@ -10,17 +10,15 @@ use Getopt::Long qw(:config posix_default bundling);
 
 #1. Осуществить проверку на принимаемые сообщения.
 #2. Подумать над логикой обработки входящих сообщений.
-#3. Решить почему на tele.svetets.ru не обрабатываются эти соообщения.
+#3. Решить почему на SipServere не обрабатываются эти соообщения.
 #4. Похоже, что Bye не правильно формируется
 #========================Variables==================
 #my $user="testu";
-#my $pass="kjuby7";
-#my $server="kudimov.svetets.ru";
 my ($server,$user,$pass);
 GetOptions('S|server=s' => \$server, 'U|user=s' => \$user,'P|pass=s'  => \$pass) || usage( "bad option" );
 if(!defined($server) or !defined($user) or !defined($pass)) { print "\n==>Parameters are not defined.\n\n"; usage( ); exit 1;}
 my $dsturi="sip:$user\@$server";
-my $localhost="192.168.69.140";
+my $localhost="localhost";
 my $debug_lavel=1;
 my $localport=5062;
 my $fromuri="sip:$user\@$server";
@@ -28,7 +26,7 @@ my $tag=genTag(6);
 my $idtag=genTag(6);
 my $realm="CallManager";
 my $UserAgent="UdpSender";
-my $call_num="patrikeev2\@";
+my $call_num="user_name\@";
 my $uri="sip:".$call_num.$server;
 my $qop="auth";
 my $cnonce=genTag(8);
@@ -134,7 +132,7 @@ Options:
   -P|--pass <password>               declare password 
 
 Examples:
-        ./udp_send_packet.pl -S voip.svetets.ru -U patrikeev2 -P 123456
+        ./udp_send_packet.pl -S sipnet.ru -U username -P 123456
 EOS
         exit( @_ ? 1:0 );
 }

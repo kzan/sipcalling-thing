@@ -44,12 +44,12 @@ SIP Requests are answered with SIP responses, of which there are 6 classes:
 """
 
 
-mParam = {'myIP' : '192.168.69.140',\
+mParam = {'myIP' : '127.0.0.1',\
           'myport' : 5080,\
-          'SIPservIP' : 'tele.svetets.ru',\
+          'SIPservIP' : 'sipnet.ru',\
           'SIPservPort' : '5060',\
-          'SIPuser' : 'patrtest',\
-          'SIPpass' : 'kjuby7patr',\
+          'SIPuser' : 'user_name',\
+          'SIPpass' : 'password',\
           'CSeq' : 1,\
           'Method' : 'REGISTER',\
           'RTries' : 0,\
